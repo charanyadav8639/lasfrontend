@@ -18,7 +18,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'https://lasbackend.onrender.com',
         changeOrigin: true,
         // Keep /api prefix so backend routes mounted at /api/... are hit
       },
