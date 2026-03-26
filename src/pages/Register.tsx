@@ -12,6 +12,7 @@ export function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState<Role>(Role.USER);
+  const [mobileNumber, setMobileNumber] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ export function Register() {
     setError('');
 
     try {
-      const response = await apiClient.post('/users/register', { name, email, password, role });
+      const response = await apiClient.post('/users/register', { name, email, password, role, mobileNumber });
       login(response.data);
       navigate('/');
     } catch (err: any) {
@@ -75,6 +76,17 @@ export function Register() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-medium" htmlFor="mobileNumber">Mobile Number (Optional)</label>
+              <Input
+                id="mobileNumber"
+                type="tel"
+                value={mobileNumber}
+                onChange={(e) => setMobileNumber(e.target.value)}
+                placeholder="+1 234 567 8900"
               />
             </div>
 

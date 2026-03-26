@@ -5,7 +5,7 @@ import { ServiceProviderResponseDTO, Role, ServiceType, ProviderType, BookingRes
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
-import { MapPin, Calendar, CircleCheck, CircleX, Users, UserPlus, Trash2 } from 'lucide-react';
+import { MapPin, Calendar, CircleCheck, CircleX, Users, UserPlus, Trash2, Phone } from 'lucide-react';
 
 export function Dashboard() {
   const { user } = useAuth();
@@ -483,6 +483,12 @@ export function Dashboard() {
                         Requested Worker: <span className="text-foreground font-medium">{booking.workerName}</span>
                       </div>
                     )}
+                    {booking.customerMobileNumber && (
+                      <div className="flex items-center gap-2">
+                        <Phone className="w-4 h-4" />
+                        Customer Phone: <span className="text-foreground font-medium">{booking.customerMobileNumber}</span>
+                      </div>
+                    )}
                     <div className="mt-4 p-3 bg-secondary/40 rounded-xl border border-primary/20 italic text-xs shadow-inner">
                       <span className="font-bold block not-italic mb-1 uppercase tracking-widest text-[10px] text-primary">Customer Reported Issue:</span>
                       {booking.issueDescription ? (
@@ -534,6 +540,12 @@ export function Dashboard() {
                         <span className="flex items-center gap-1 text-xs bg-secondary px-2 py-0.5 rounded text-secondary-foreground">
                           <Users className="w-3 h-3" />
                           {booking.workerName}
+                        </span>
+                      )}
+                      {booking.customerMobileNumber && (
+                        <span className="flex items-center gap-1 text-xs bg-secondary px-2 py-0.5 rounded text-secondary-foreground">
+                          <Phone className="w-3 h-3" />
+                          {booking.customerMobileNumber}
                         </span>
                       )}
                     </div>

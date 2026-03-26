@@ -29,6 +29,7 @@ export interface UserResponseDTO {
   name: string;
   email: string;
   role: Role;
+  mobileNumber?: string;
 }
 
 export interface ServiceProviderResponseDTO {
@@ -74,6 +75,7 @@ export interface BookingResponseDTO {
   address: string;
   issueDescription?: string;
   status: BookingStatus;
+  customerMobileNumber?: string;
 }
 
 export interface BookingRequestDTO {
