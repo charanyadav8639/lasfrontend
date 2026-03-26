@@ -477,16 +477,14 @@ export function Dashboard() {
                       <MapPin className="w-4 h-4" />
                       <span className="font-medium text-foreground">{booking.address}</span>
                     </div>
+                    <div className="flex items-center gap-2">
+                      <Phone className="w-4 h-4" />
+                      <span className="font-medium text-foreground">{booking.customerMobileNumber || 'Not provided'}</span>
+                    </div>
                     {booking.workerName && (
                       <div className="flex items-center gap-2">
                         <Users className="w-4 h-4" />
                         Requested Worker: <span className="text-foreground font-medium">{booking.workerName}</span>
-                      </div>
-                    )}
-                    {booking.customerMobileNumber && (
-                      <div className="flex items-center gap-2">
-                        <Phone className="w-4 h-4" />
-                        Customer Phone: <span className="text-foreground font-medium">{booking.customerMobileNumber}</span>
                       </div>
                     )}
                     <div className="mt-4 p-3 bg-secondary/40 rounded-xl border border-primary/20 italic text-xs shadow-inner">
@@ -535,17 +533,12 @@ export function Dashboard() {
                       <span className="font-medium text-foreground">#{booking.id}</span>
                       <span className="font-medium text-foreground">{booking.serviceName}</span>
                       <span className="flex items-center gap-1"><MapPin className="w-3 h-3" />{booking.address}</span>
+                      <span className="flex items-center gap-1"><Phone className="w-3 h-3" />{booking.customerMobileNumber || 'N/A'}</span>
                       <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{new Date(booking.bookingDate).toLocaleDateString()}</span>
                       {booking.workerName && (
                         <span className="flex items-center gap-1 text-xs bg-secondary px-2 py-0.5 rounded text-secondary-foreground">
                           <Users className="w-3 h-3" />
                           {booking.workerName}
-                        </span>
-                      )}
-                      {booking.customerMobileNumber && (
-                        <span className="flex items-center gap-1 text-xs bg-secondary px-2 py-0.5 rounded text-secondary-foreground">
-                          <Phone className="w-3 h-3" />
-                          {booking.customerMobileNumber}
                         </span>
                       )}
                     </div>

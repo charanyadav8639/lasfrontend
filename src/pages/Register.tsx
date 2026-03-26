@@ -80,13 +80,14 @@ export function Register() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-medium" htmlFor="mobileNumber">Mobile Number (Optional)</label>
+              <label className="text-sm font-medium" htmlFor="mobileNumber">Mobile Number</label>
               <Input
                 id="mobileNumber"
                 type="tel"
                 value={mobileNumber}
                 onChange={(e) => setMobileNumber(e.target.value)}
                 placeholder="+1 234 567 8900"
+                required
               />
             </div>
 
